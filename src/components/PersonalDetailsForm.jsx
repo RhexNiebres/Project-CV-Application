@@ -11,90 +11,95 @@ export default function Form() {
     about: '',
   });
 
-  const fullName = firstName + ' ' + lastName;
-  const email = Email;
-  const phoneNumber = PhoneNumber;
-  const address= Address;
-  const jobRole= JobRole;
-  const about = About;
+  const { firstName, lastName, email, phoneNumber, address, jobRole, about } = formData;
 
-  function handleFirstNameChange(e) {
-    setFirstName(e.target.value);
-  }
-
-  function handleLastNameChange(e) {
-    setLastName(e.target.value);
-  }
-
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
-  function handlePhoneNumberChange(e) {
-    setPhoneNumber(e.target.value);
-  }
-  function handleAddressChange(e) {
-    setAddress(e.target.value);
-  }
-  function handleJobRoleChange(e) {
-    setJobeRole(e.target.value);
-  }
-  function handleAboutChange(e) {
-    setAbout(e.target.value);
+    function handleChange(event) {
+    const { name, value } = event.target; 
+    setFormData((prevData) => ({
+      ...prevData, 
+      [name]: value, 
+    }));
   }
   return (
     <>
       <h2>Let’s check you in</h2>
-      <label>
-        First name:{' '}
-        <input
-          value={firstName}
-          onChange={handleFirstNameChange}
-        />
-      </label>
-      <label>
-        Last name:{' '}
-        <input
-          value={lastName}
-          onChange={handleLastNameChange}
-        />
-      </label>
-      <label>
-        Email:{' '}
-        <input
-          value={Email}
-          onChange={handleEmailChange}
-        />
-      </label>
-      <label>
-        Phone NUmber:{' '}
-        <input
-          value={phoneNumber}
-          onChange={handlePhoneNumberChange}
-        />
-      </label>
-      <label>
-        Address:{' '}
-        <input
-          value={address}
-          onChange={handleAddressChange}
-        />
-      </label>
-      <label>
-        Job Role:{' '}
-        <input
-          value={jobRole}
-          onChange={handleJobRoleChange}
-        />
-      </label>
-      <label>
-        About:{' '}
-        <input
-          value={about}
-          onChange={handleAboutChange}
-        />
-      </label>
+      <form>
+        <label htmlFor="firstName">
+          First name:{' '}
+          <input
+            id="firstName"
+            name="firstName"
+            value={firstName}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label htmlFor="lastName">
+          Last name:{' '}
+          <input
+            id="lastName"
+            name="lastName"
+            value={lastName}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label htmlFor="email">
+          Email:{' '}
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={email}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label htmlFor="phoneNumber">
+          Phone Number:{' '}
+          <input
+            id="phoneNumber"
+            name="phoneNumber"
+            type="tel"
+            value={phoneNumber}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label htmlFor="address">
+          Address:{' '}
+          <input
+            id="address"
+            name="address"
+            value={address}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label htmlFor="jobRole">
+          Job Role:{' '}
+          <input
+            id="jobRole"
+            name="jobRole"
+            value={jobRole}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label htmlFor="about">
+          About:{' '}
+          <textarea
+            id="about"
+            name="about"
+            value={about}
+            onChange={handleChange}
+          />
+        </label>
+      </form>
+
+      <h3>Summary</h3>
       <p>
-        Full Name: <b>{fullName}</b>
+        Full Name: <b>{firstName} {lastName}</b>
       </p>
       <p>
         Email: <b>{email}</b>
@@ -106,7 +111,7 @@ export default function Form() {
         Address: <b>{address}</b>
       </p>
       <p>
-        JobRole: <b>{jobRole}</b>
+        Job Role: <b>{jobRole}</b>
       </p>
       <p>
         About: <b>{about}</b>
