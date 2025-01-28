@@ -1,29 +1,30 @@
-import { useState } from 'react';
+import './personaldetails.css'
+export default function Form({ data, setFormData }) {
+  const { firstName, lastName, email, phoneNumber, address, jobRole, about, } = data;
 
-export default function Form() {
- const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneNumber: '',
-    address: '',
-    jobRole: '',
-    about: '',
-  });
-
-  const { firstName, lastName, email, phoneNumber, address, jobRole, about } = formData;
-
-    function handleChange(event) {
-    const { name, value } = event.target; 
+  function handleChange(event) {
+    const { name, value } = event.target;
     setFormData((prevData) => ({
-      ...prevData, 
-      [name]: value, 
+      ...prevData,
+      [name]: value,
     }));
   }
+
+  function handleImageChange(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setFormData((prevData) => ({
+        ...prevData,
+        profilePicture: imageUrl,
+      }));
+    }
+  }
+
   return (
-    <>
-      <h2>Let’s check you in</h2>
-      <form>
+    <div className="personal-details">
+      <h2>Personal Details</h2>
+      <form id="personal-details-form">
         <label htmlFor="firstName">
           First name:{' '}
           <input
@@ -91,31 +92,22 @@ export default function Form() {
           <textarea
             id="about"
             name="about"
+            rows={4}
             value={about}
             onChange={handleChange}
           />
         </label>
+        <br />
+        <label htmlFor="profile-picture">
+          Picture:{' '}
+          <input 
+          type="file"
+            id="profile-picture"
+            name="about"
+            onChange={handleImageChange}
+          />
+        </label>
       </form>
-
-      <h3>Summary</h3>
-      <p>
-        Full Name: <b>{firstName} {lastName}</b>
-      </p>
-      <p>
-        Email: <b>{email}</b>
-      </p>
-      <p>
-        Phone Number: <b>{phoneNumber}</b>
-      </p>
-      <p>
-        Address: <b>{address}</b>
-      </p>
-      <p>
-        Job Role: <b>{jobRole}</b>
-      </p>
-      <p>
-        About: <b>{about}</b>
-      </p>
-    </>
+    </div>
   );
 }
