@@ -1,13 +1,15 @@
 import { useState } from 'react';
 
 export default function Form() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [Email, setEmail] = useState('');
-  const [PhoneNumber, setPhoneNumber] = useState('');
-  const [Address, setAddress] = useState('');
-  const [JobRole, setJobeRole] = useState('');
-  const [About, setAbout] = useState('');
+ const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    address: '',
+    jobRole: '',
+    about: '',
+  });
 
   const fullName = firstName + ' ' + lastName;
   const email = Email;
