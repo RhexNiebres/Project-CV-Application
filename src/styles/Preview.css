@@ -1,0 +1,29 @@
+.Preview {
+  height: 100vh;
+  padding: 2.5em;
+  color: black;
+  h3 {
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .Preview * {
+    visibility: visible;
+  }
+
+  .Preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .Preview .print {
+   display: none;
+  }
+}
+
+
