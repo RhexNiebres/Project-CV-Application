@@ -17,15 +17,33 @@ export default function App({ initialData }) {
     schoolName:initialData?.schoolName || `Mrs. Puff's Boating School `,
     degree:initialData?.degree||`Mrs. Puff's Boating School (currently)`,
     date: initialData?.date|| '',
-    company: initialData?.company|| '',
-    position: initialData?.position|| '',
+    companyName: initialData?.companyName|| 'Krusty krab',
+    position: initialData?.position|| 'Fry Cook',
     startDate: initialData?.startDate|| '',
     endDate: initialData?.endDate|| ''
   });
 
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  }
+
+  function handleImageChange(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setFormData((prevData) => ({
+        ...prevData,
+        profilePicture: imageUrl,
+      }));
+    }
+  }
   return (
     <div className='App'>
-      <Editor formData={formData} setFormData={setFormData} />
+      <Editor formData={formData} setFormData={setFormData} handleChange={handleChange} handleImageChange={handleImageChange} />
       <Preview formData={formData} />
     </div>
   );
