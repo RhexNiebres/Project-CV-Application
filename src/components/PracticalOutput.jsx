@@ -1,7 +1,10 @@
 import '../styles/educationoutput.css'
 export default function PracticalFormOutput({ formData }) {
     const { companyName, position, startDate, endDate } = formData;
-  
+
+    const handlePrint = () => {
+      window.print();
+    };
     return (
       <div className="output">
         <h3>Practical Experience</h3>
@@ -12,11 +15,9 @@ export default function PracticalFormOutput({ formData }) {
           Position: <b>{position}</b>
         </p>
         <p>
-          Start Date: <b>{startDate}</b>
+          Date: From <b>{startDate} To {endDate}</b>
         </p>
-        <p>
-          End Date: <b>{endDate}</b>
-        </p>
+        <button className="print" onClick={handlePrint}>Print CV</button>
       </div>
     );
   }
