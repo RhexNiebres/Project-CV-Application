@@ -2,9 +2,8 @@
   height: 100vh;
   padding: 2.5em;
   color: black;
-  h3 {
-  }
 }
+
 
 @media print {
   body * {
@@ -13,8 +12,10 @@
 
   .Preview * {
     visibility: visible;
+    
   }
 
+  
   .Preview {
     position: absolute;
     left: 0;
@@ -24,6 +25,10 @@
   .Preview .print {
    display: none;
   }
+  
 }
-
+.print{
+  color: white;
+  background-color: #1F3A6D;
+}
 
