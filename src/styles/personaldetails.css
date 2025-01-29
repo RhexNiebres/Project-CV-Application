@@ -17,8 +17,8 @@ body{
     font-weight: 700;
     flex: 1;
   }
-  input{
-
+  textarea{
+    width: 391px;
   }
 }
 #personal-details-form{
