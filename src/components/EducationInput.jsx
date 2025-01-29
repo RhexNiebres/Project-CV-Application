@@ -1,58 +1,34 @@
+import InputField from "./InputField";
+import "../styles/educationinput.css";
 
-import '../styles/educationinput.css';
-
-export default function EducationForm({ formData, setFormData }) {
+export default function EducationForm({ formData, handleChange }) {
   const { schoolName, degree, date } = formData;
-
-  // Handle updates to the inputs
-  function handleSchoolNameChange(e) {
-    setFormData((prevData) => ({
-      ...prevData,
-      schoolName: e.target.value,
-    }));
-  }
-
-  function handleDegreeChange(e) {
-    setFormData((prevData) => ({
-      ...prevData,
-      degree: e.target.value,
-    }));
-  }
-
-  function handleDateChange(e) {
-    setFormData((prevData) => ({
-      ...prevData,
-      date: e.target.value,
-    }));
-  }
 
   return (
     <div className="input">
       <h2>Education</h2>
-      <label>
-        School Name <br />
-        <input
-          value={schoolName}
-          onChange={handleSchoolNameChange}
-        />
-      </label>
+      <InputField
+        id="schoolName"
+        label="School Name"
+        value={schoolName}
+        onChange={handleChange}
+      />
+
       <br />
-      <label>
-        Degree <br />
-        <input
-          value={degree}
-          onChange={handleDegreeChange}
-        />
-      </label>
+      <InputField
+        id="degree"
+        label="Degree"
+        value={degree}
+        onChange={handleChange}
+      />
       <br />
-      <label>
-        Date <br />
-        <input
-        type='date'
-          value={date}
-          onChange={handleDateChange}
-        />
-      </label>
+      <InputField
+        id="date"
+        label="Date"
+        type="date"
+        value={date}
+        onChange={handleChange}
+      />
       <hr />
     </div>
   );
