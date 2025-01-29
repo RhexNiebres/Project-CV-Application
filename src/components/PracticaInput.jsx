@@ -1,74 +1,19 @@
-
+import InputField from './InputField.jsx';
 import '../styles/practicalinput.css';
 
-export default function PracticalFormInput({ formData, setFormData }) {
+export default function PracticalFormInput({ formData, handleChange}) {
   const { companyName, position, startDate, endDate } = formData;
-
-  // Handle updates to the inputs
-  function handleCompanyNameChange(e) {
-    setFormData((prevData) => ({
-      ...prevData,
-      companyName: e.target.value,
-    }));
-  }
-
-  function handlePositionChange(e) {
-    setFormData((prevData) => ({
-      ...prevData,
-      position: e.target.value,
-    }));
-  }
-
-  function handleStartDateChange(e) {
-    setFormData((prevData) => ({
-      ...prevData,
-      startdate: e.target.value,
-    }));
-  }
-
-  function handleEndDateChange(e) {
-    setFormData((prevData) => ({
-      ...prevData,
-      endDate: e.target.value,
-    }));
-  }
 
   return (
     <div className="input">
       <h2>Practical Experience</h2>
-      <label>
-        Company Name <br />
-        <input
-          value={companyName}
-          onChange={handleCompanyNameChange}
-        />
-      </label>
+      <InputField id="companyName" label="CompanyName" value={companyName} onChange={handleChange} />
       <br />
-      <label>
-        Position <br />
-        <input
-          value={position}
-          onChange={handlePositionChange}
-        />
-      </label>
+      <InputField id="position" label="Position" value={position} onChange={handleChange} />
       <br />
-      <label>
-        date From <br />
-        <input
-        type='date'
-          value={startDate}
-          onChange={handleStartDateChange}
-        />
-      </label>
+      <InputField id="startDate" label="Start Date" type='date' value={startDate} onChange={handleChange} />
       <br />
-      <label>
-        to <br />
-        <input
-        type='date'
-          value={endDate}
-          onChange={handleEndDateChange}
-        />
-      </label>
+      <InputField id="endDate" label="End Date" type='date' value={endDate} onChange={handleChange} />
       <hr />
     </div>
   );
