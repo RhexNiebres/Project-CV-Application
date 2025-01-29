@@ -1,4 +1,4 @@
-import './personaldetails.css'
+import '../styles/personaldetails.css'
 export default function Form({ data, setFormData }) {
   const { firstName, lastName, email, phoneNumber, address, jobRole, about, } = data;
 
@@ -23,10 +23,13 @@ export default function Form({ data, setFormData }) {
 
   return (
     <div className="personal-details">
+      <h1>CV Builder</h1>
+      <hr />
       <h2>Personal Details</h2>
+      <hr />
       <form id="personal-details-form">
         <label htmlFor="firstName">
-          First name:{' '}
+          First name <br />{' '}
           <input
             id="firstName"
             name="firstName"
@@ -36,7 +39,7 @@ export default function Form({ data, setFormData }) {
         </label>
         <br />
         <label htmlFor="lastName">
-          Last name:{' '}
+          Last name <br />{' '}
           <input
             id="lastName"
             name="lastName"
@@ -46,7 +49,7 @@ export default function Form({ data, setFormData }) {
         </label>
         <br />
         <label htmlFor="email">
-          Email:{' '}
+          Email <br />{' '}
           <input
             id="email"
             name="email"
@@ -57,7 +60,7 @@ export default function Form({ data, setFormData }) {
         </label>
         <br />
         <label htmlFor="phoneNumber">
-          Phone Number:{' '}
+          Phone Number <br />{' '}
           <input
             id="phoneNumber"
             name="phoneNumber"
@@ -68,7 +71,7 @@ export default function Form({ data, setFormData }) {
         </label>
         <br />
         <label htmlFor="address">
-          Address:{' '}
+          Address <br />{' '}
           <input
             id="address"
             name="address"
@@ -78,7 +81,7 @@ export default function Form({ data, setFormData }) {
         </label>
         <br />
         <label htmlFor="jobRole">
-          Job Role:{' '}
+          Job Role <br />{' '}
           <input
             id="jobRole"
             name="jobRole"
@@ -88,7 +91,7 @@ export default function Form({ data, setFormData }) {
         </label>
         <br />
         <label htmlFor="about">
-          About:{' '}
+          About <br />{' '}
           <textarea
             id="about"
             name="about"
@@ -99,7 +102,7 @@ export default function Form({ data, setFormData }) {
         </label>
         <br />
         <label htmlFor="profile-picture">
-          Picture:{' '}
+          Change Picture <br />{' '}
           <input 
           type="file"
             id="profile-picture"
@@ -108,6 +111,7 @@ export default function Form({ data, setFormData }) {
           />
         </label>
       </form>
-    </div>
+      <hr />
+     </div>
   );
 }
