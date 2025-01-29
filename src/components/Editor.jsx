@@ -1,13 +1,13 @@
-import PersonalDetailsSection from './PersonalDetailsSection'
-
-export default function Editor(){
-    return(
-        <section>
-            <div />
-            <h1>Cv Builder</h1>
-            <div />
-            <PersonalDetailsSection/>
-            
-        </section>
-    )
+import EducationInput from './EducationInput';
+import Form from './PersonalDetailsForm';
+import PracticalFormInput from './PracticaInput.jsx';
+import '../styles/editor.css'
+export default function Editor({ formData, setFormData }) {
+  return (
+    <section className='Editor'>
+      <Form data={formData} setFormData={setFormData} />
+      <EducationInput formData={formData} setFormData={setFormData} />
+      < PracticalFormInput formData={formData} setFormData={setFormData}/>
+    </section>
+  );
 }
